@@ -2,4 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    width: 30px;
+    fill: rgb(204, 255, 0);
+  }
 }

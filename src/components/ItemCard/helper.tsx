@@ -5,3 +5,8 @@ export type ItemData = {
   price: number;
   id: string;
 };
+
+export interface ItemCardProps extends ItemData {
+  type: 'catalog' | 'item';
+  onClick?: () => void;
+}
