@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "solar 100",
+    "mountType": "priFlat",
+    "manufacturer": "KEYVOLT",
+    "price": 325
+  },
+  {
+    "id": 2,
+    "name": "solar 101",
+    "mountType": "priRoof",
+    "manufacturer": "SOLARMAX",
+    "price": 408
+  },
+  {
+    "id": 3,
+    "name": "solar 102",
+    "mountType": "priFlat",
+    "manufacturer": "SOLARMAX",
+    "price": 238
+  },
+  {
+    "id": 4,
+    "name": "solar 103",
+    "mountType": "priFlat",
+    "manufacturer": "KEYVOLT",
+    "price": 312
+  },
+  {
+    "id": 5,
+    "name": "solar 104",
+    "mountType": "priRoof",
+    "manufacturer": "KEYVOLT",
+    "price": 287
+  },
+  {
+    "id": 6,
+    "name": "solar 105",
+    "mountType": "priRoof",
+    "manufacturer": "KEYVOLT",
+    "price": 242
+  },
+  {
+    "id": 7,
+    "name": "solar 106",
+    "mountType": "priRoof",
+    "manufacturer": "KEYVOLT",
+    "price": 408
+  },
+  {
+    "id": 8,
+    "name": "solar 107",
+    "mountType": "priFlat",
+    "manufacturer": "RisenSolar",
+    "price": 190
+  },
+  {
+    "id": 9,
+    "name": "solar 108",
+    "mountType": "priFlat",
+    "manufacturer": "RisenSolar",
+    "price": 415
+  },
+  {
+    "id": 10,
+    "name": "solar 109",
+    "mountType": "priFlat",
+    "manufacturer": "SOLARMAX",
+    "price": 294
+  },
+  {
+    "id": 11,
+    "name": "solar 110",
+    "mountType": "priRoof",
+    "manufacturer": "RisenSolar",
+    "price": 332
+  },
+  {
+    "id": 12,
+    "name": "solar 111",
+    "mountType": "priRoof",
+    "manufacturer": "KEYVOLT",
+    "price": 277
+  },
+  {
+    "id": 13,
+    "name": "solar 112",
+    "mountType": "priFlat",
+    "manufacturer": "RisenSolar",
+    "price": 305
+  },
+  {
+    "id": 14,
+    "name": "solar 113",
+    "mountType": "priFlat",
+    "manufacturer": "SOLARMAX",
+    "price": 166
+  },
+  {
+    "id": 15,
+    "name": "solar 114",
+    "mountType": "priRoof",
+    "manufacturer": "RisenSolar",
+    "price": 198
+  },
+  {
+    "id": 16,
+    "name": "solar 115",
+    "mountType": "priRoof",
+    "manufacturer": "KEYVOLT",
+    "price": 407
+  },
+  {
+    "id": 17,
+    "name": "solar 116",
+    "mountType": "priFlat",
+    "manufacturer": "SOLARMAX",
+    "price": 452
+  },
+  {
+    "id": 18,
+    "name": "solar 117",
+    "mountType": "priBalcony",
+    "manufacturer": "RisenSolar",
+    "price": 406
+  },
+  {
+    "id": 19,
+    "name": "solar 118",
+    "mountType": "priRoof",
+    "manufacturer": "RisenSolar",
+    "price": 337
+  },
+  {
+    "id": 20,
+    "name": "solar 119",
+    "mountType": "priBalcony",
+    "manufacturer": "KEYVOLT",
+    "price": 398
+  }
+]

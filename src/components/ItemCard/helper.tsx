@@ -3,4 +3,5 @@ export type ItemData = {
   mountType: string;
   manufacturer: string;
   price: number;
+  id: string;
 };
