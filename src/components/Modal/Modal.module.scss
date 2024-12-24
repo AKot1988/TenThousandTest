@@ -17,8 +17,6 @@
     max-width: 80%;
     align-items: center;
     box-sizing: border-box;
-    // background-color: $lightGray;
-    // color: $main;
     cursor: initial;
   }
   &.active {
@@ -37,7 +35,6 @@
     width: 1em;
     height: 1em;
     border-radius: 5px;
-    // background-color: $lightGray;
     cursor: pointer;
     fill: gray;
   }
