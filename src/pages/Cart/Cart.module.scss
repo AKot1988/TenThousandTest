@@ -1,8 +1,10 @@
 .cart {
   position: relative;
   width: 50vw;
-  min-height: 200px;
+  // min-height: 200px;
   border: 1px solid #ccc;
+
+
 
   &  SVG {
     position: absolute;
@@ -11,5 +13,17 @@
     width: 20px;
     height: 20px;
     fill: rgb(174, 255, 0);
+  }
+
+  &ItemsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  &Item {
+    list-style: none;
   }
 }

@@ -4,7 +4,6 @@ import { addItem, removeItem } from '../../storage/itemSlice.jsx';
 import { ItemCardProps } from './helper';
 import classes from './ItemCard.module.scss';
 
-
 const ItemCard: FC<ItemCardProps> = ({ type, onClick, ...itemData }) => {
   const dispatch = useDispatch();
 
@@ -42,6 +41,20 @@ const ItemCard: FC<ItemCardProps> = ({ type, onClick, ...itemData }) => {
           <button onClick={handleAddAction}>Add to Cart</button>
           <button disabled={itemQuantity === 0} onClick={handleRemoveAction}>
             Remove from Cart
+          </button>
+        </div>
+      );
+    case 'itemCart':
+      return (
+        <div className={classes.itemCardCart}>
+          <h2>{itemData.name}</h2>
+          <p>{itemData.mountType}</p>
+          <p>{itemData.manufacturer}</p>
+          <p>{`price ${itemData.price} $`}</p>
+          <p>{`in cart: ${itemQuantity}`}</p>
+          <button onClick={handleAddAction}>+</button>
+          <button disabled={itemQuantity === 0} onClick={handleRemoveAction}>
+            -
           </button>
         </div>
       );

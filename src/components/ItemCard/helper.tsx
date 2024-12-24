@@ -7,6 +7,6 @@ export type ItemData = {
 };
 
 export interface ItemCardProps extends ItemData {
-  type: 'catalog' | 'item';
+  type: 'catalog' | 'item' | 'itemCart';
   onClick?: () => void;
 }
