@@ -5,7 +5,6 @@ import classes from './Cart.module.scss';
 
 const Cart: FC = () => {
   const items = useSelector((state: any) => state.items);
-  console.log(items);
   return (
     <div className={classes.cart}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">

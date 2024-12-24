@@ -25,5 +25,9 @@
 
   &Item {
     list-style: none;
+
+    & button {
+      width: 100 px;
+    }
   }
 }

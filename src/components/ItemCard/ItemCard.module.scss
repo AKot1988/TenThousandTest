@@ -1,12 +1,17 @@
 .itemCard,
 .itemCardCart {
-  width: 200px;
+  max-width: 300px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
   border: 1px solid teal;
+
 
   & button {
     margin: 10px;
   }
 }
 
+.itemCardCart button {
+  width: 100px;
+}
