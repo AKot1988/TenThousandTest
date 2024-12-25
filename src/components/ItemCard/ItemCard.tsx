@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItem, removeItem } from '../../storage/itemSlice.jsx';
+import { addItem, removeItem } from '../../storage/itemSlice.ts';
 import { ItemCardProps } from './helper';
 import classes from './ItemCard.module.scss';
 
