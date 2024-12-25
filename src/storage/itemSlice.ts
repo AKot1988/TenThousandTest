@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { MapedItemData } from '../components/ItemCard/helper';
 
 const itemSlice = createSlice({
   name: 'items',
-  initialState: [],
+  initialState: [] as MapedItemData[],
   reducers: {
     addItem(state, action) {
       const existingItem = state.find((item) => item.id === action.payload.id);

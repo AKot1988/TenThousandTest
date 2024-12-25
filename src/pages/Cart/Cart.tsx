@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { RootState } from '../../storage/index';
 import { FC } from 'react';
 import { ItemCard } from '../../components';
 import { SVGset } from "../../assets/SVGset";
@@ -6,7 +7,8 @@ import { MapedItemData } from '../../components/ItemCard/helper';
 import classes from './Cart.module.scss';
 
 const Cart: FC = () => {
-  const items = useSelector((state: any) => state.items);
+  const items = useSelector((state: RootState) => state.items as MapedItemData[]);
+  // console.log(state)
   return (
     <div className={classes.cart}>
       {SVGset.cartIcon}

@@ -27,7 +27,7 @@ const Catalog: FC = () => {
           type="catalog"
           onClick={() => {
             setModalPanel(!modalPanel);
-            setModalData((<ItemCard {...item} type="item" />));
+            setModalData((<ItemCard {...item} type="item"/>));
           }}
         />
       )),
