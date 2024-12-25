@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useMemo } from 'react';
+import { FC, useState, useEffect, useMemo, ReactNode } from 'react';
 import { ItemData } from '../../components/ItemCard/helper';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import { SVGset } from '../../assets/SVGset';
@@ -8,8 +8,8 @@ import classes from './Catalog.module.scss';
 
 const Catalog: FC = () => {
   const [data, setData] = useState<ItemData[]>([]);
-  const [modalData, setModalData] = useState<ItemData | null>(null);
-  const [modalPanel, setModalPanel] = useState(false)
+  const [modalData, setModalData] = useState<ReactNode | null>(null);
+  const [modalPanel, setModalPanel] = useState(false);
   const [modalCartState, setModalCart] = useState(false);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Catalog: FC = () => {
           type="catalog"
           onClick={() => {
             setModalPanel(!modalPanel);
-            setModalData(item);
+            setModalData((<ItemCard {...item} type="item" />));
           }}
         />
       )),
@@ -39,7 +39,7 @@ const Catalog: FC = () => {
       <div className={classes.catalog}>
         <div
           onClick={() => {
-            (setModalCart(!modalCartState));
+            setModalCart(!modalCartState);
           }}>
           {SVGset.cartIcon}
         </div>

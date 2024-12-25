@@ -13,7 +13,6 @@ const Modal: FC<ModalProps> = ({
   useEffect(() => {
     const hendleKeyUP = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        console.log("Escape key pressed");
         setVisible(false);
       }
     }
