@@ -7,24 +7,10 @@ import { axiosResponse } from '../../API';
 import classes from './Catalog.module.scss';
 
 const Catalog: FC = () => {
-  
   const [data, setData] = useState<ItemData[]>([]);
-  const [modalData, setModalData] = useState<{
-    modalVisible: boolean;
-    itemToRender: ItemData | null;
-  }>({
-    modalVisible: false,
-    itemToRender: null,
-  });
-  
-  const [modalCartState, setModalCart] = useState<{
-    modalCartVisible: boolean;
-    itemToRender: FC | null;
-  }>({
-    modalCartVisible: false,
-    itemToRender: null,
-  });
-
+  const [modalData, setModalData] = useState<ItemData | null>(null);
+  const [modalPanel, setModalPanel] = useState(false)
+  const [modalCartState, setModalCart] = useState(false);
 
   useEffect(() => {
     axiosResponse('../../../public/dataJSON/solarPanel.json').then((data) =>
@@ -40,11 +26,12 @@ const Catalog: FC = () => {
           {...item}
           type="catalog"
           onClick={() => {
-            setModalData({ modalVisible: true, itemToRender: item });
+            setModalPanel(!modalPanel);
+            setModalData(item);
           }}
         />
       )),
-    [data] // Оновлювати список лише коли змінюється `data`
+    [data]
   );
 
   return (
@@ -52,26 +39,21 @@ const Catalog: FC = () => {
       <div className={classes.catalog}>
         <div
           onClick={() => {
-            
-            ({ modalCartVisible: true, itemToRender: Cart });
+            (setModalCart(!modalCartState));
           }}>
           {SVGset.cartIcon}
         </div>
         {renderedCards}
       </div>
       <Modal
-        visible={modalData.modalVisible}
-        content={
-          modalData.itemToRender ? (
-            <ItemCard {...modalData.itemToRender} type="item" />
-          ) : null
-        }
+        visible={modalPanel}
+        content={modalData}
         title="Item Info"
-        setVisible={setModalData}
+        setVisible={setModalPanel}
       />
       <Modal
-        visible={modalCartState.modalCartVisible}
-        content={modalCartState.itemToRender ? <Cart /> : null}
+        visible={modalCartState}
+        content={<Cart />}
         title="Items in cart"
         setVisible={setModalCart}
       />
