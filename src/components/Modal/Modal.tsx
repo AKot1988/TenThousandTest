@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import { CloseBtn } from "./CloseBtn";
+import { SVGset } from "../../assets/SVGset";
 import { ModalProps } from "./helper";
 import classes from "./Modal.module.scss";
 
@@ -36,7 +36,7 @@ const Modal: FC<ModalProps> = ({
           className={classes.modalBtnClose}
           onClick={() => setVisible(false)}
         >
-          {CloseBtn.closeIcon}
+          {SVGset.closeIcon}
         </div>
         <h2 className={classes.modalTitle}>{title}</h2>
         {content}

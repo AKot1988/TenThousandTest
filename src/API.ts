@@ -1,4 +1,14 @@
-export const fetchItems = async (requestURL: string) => {
-  const data = await fetch(requestURL).then((res) => res.json());
+import axios from 'axios';
+
+export const axiosResponse = async (requestURL: string) => {
+  const data = await axios(requestURL)
+    .then((res) => {
+      console.log(res);
+      return res.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+      return `<p>${error.message}</p>`;
+    });
   return data;
 };
