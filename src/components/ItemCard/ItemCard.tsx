@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem, removeItem } from '../../storage/itemSlice.ts';
+import { ItemData } from '../../components/ItemCard/helper';
 import { ItemCardProps } from './helper';
 import classes from './ItemCard.module.scss';
 
@@ -8,7 +9,7 @@ const ItemCard: FC<ItemCardProps> = ({ type, onClick, ...itemData }) => {
   const dispatch = useDispatch();
 
   const itemInCart = useSelector((state: any) =>
-    state.items.find((item: any) => item.id === itemData.id)
+    state.items.find((item: ItemData) => item.id === itemData.id)
   );
   const itemQuantity = itemInCart ? itemInCart.quantity : 0;
   const [inputQuantity, setInputQuantity] = useState(itemQuantity);

@@ -3,7 +3,6 @@ import axios from 'axios';
 export const axiosResponse = async (requestURL: string) => {
   const data = await axios(requestURL)
     .then((res) => {
-      console.log(res);
       return res.data;
     })
     .catch(function (error) {

@@ -6,6 +6,9 @@ export type ItemData = {
   id: string;
 };
 
+export interface MapedItemData extends ItemData {
+  quantity: number;
+}
 export interface ItemCardProps extends ItemData {
   type: 'catalog' | 'item' | 'itemCart';
   onClick?: () => void;
