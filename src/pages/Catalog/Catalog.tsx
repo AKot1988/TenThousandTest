@@ -37,7 +37,7 @@ const Catalog: FC = () => {
   return (
     <>
       <div className={classes.catalog}>
-        <div
+        <div className={classes.catalogCartSVGContainer}
           onClick={() => {
             setModalCart(!modalCartState);
           }}>
