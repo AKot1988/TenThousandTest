@@ -8,7 +8,6 @@ import classes from './ItemCard.module.scss';
 
 const ItemCard: FC<ItemCardProps> = ({ type, onClick, ...itemData }) => {
   const dispatch = useDispatch();
-  console.log(itemData);
   const itemInCart = useSelector((state: RootState) =>
     state.items.find((item: ItemData) => item.id === itemData.id)
   );
