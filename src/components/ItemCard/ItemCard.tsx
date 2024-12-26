@@ -1,24 +1,29 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../storage/index';
 import { addItem, removeItem } from '../../storage/itemSlice.ts';
-import { ItemData } from '../../components/ItemCard/helper';
+import { ItemData, MapedItemData } from '../../components/ItemCard/helper';
 import { ItemCardProps } from './helper';
 import classes from './ItemCard.module.scss';
 
 const ItemCard: FC<ItemCardProps> = ({ type, onClick, ...itemData }) => {
   const dispatch = useDispatch();
-
+  console.log(itemData);
   const itemInCart = useSelector((state: RootState) =>
     state.items.find((item: ItemData) => item.id === itemData.id)
   );
   const itemQuantity = itemInCart ? itemInCart.quantity : 0;
+
   const [inputQuantity, setInputQuantity] = useState(itemQuantity);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(0, parseInt(event.target.value) || 0);
     setInputQuantity(value);
   };
+
+  useEffect(() => {
+    setInputQuantity(itemQuantity);
+  }, [itemData.id, itemQuantity]);
 
   const handleUpdateQuantity = () => {
     const difference = inputQuantity - itemQuantity;
@@ -63,17 +68,18 @@ const ItemCard: FC<ItemCardProps> = ({ type, onClick, ...itemData }) => {
           <div className={classes.quantityControl}>
             <label htmlFor={`quantity-${itemData.id}`}>Кількість:</label>
             <input
-             className={classes.quantityInput}
+              className={classes.quantityInput}
               id={`quantity-${itemData.id}`}
               type="number"
               value={inputQuantity}
+              placeholder="Input panel quantity"
               min="0"
               onChange={handleInputChange}
             />
-            </div>
+          </div>
           <button onClick={handleUpdateQuantity}>Add to Cart</button>
           <button disabled={itemQuantity === 0} onClick={handleRemoveAction}>
-            Remove from Cart
+            -1 from Cart
           </button>
         </div>
       );

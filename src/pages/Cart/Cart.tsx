@@ -8,7 +8,6 @@ import classes from './Cart.module.scss';
 
 const Cart: FC = () => {
   const items = useSelector((state: RootState) => state.items as MapedItemData[]);
-  // console.log(state)
   return (
     <div className={classes.cart}>
       {SVGset.cartIcon}
