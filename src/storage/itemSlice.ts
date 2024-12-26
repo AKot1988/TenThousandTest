@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { MapedItemData } from '../components/ItemCard/helper';
+import type { PayloadAction } from '@reduxjs/toolkit'
+import { MapedItemData, ItemData } from '../components/ItemCard/helper';
+// import { RootState } from './index';
+
+const initialState: MapedItemData[] = [];
 
 const itemSlice = createSlice({
   name: 'items',
-  initialState: [] as MapedItemData[],
+  initialState,
   reducers: {
-    addItem(state, action) {
+    addItem(state, action: PayloadAction<ItemData>) {
       const existingItem = state.find((item) => item.id === action.payload.id);
 
       if (existingItem) {
@@ -14,7 +18,7 @@ const itemSlice = createSlice({
         state.push({ ...action.payload, quantity: 1 });
       }
     },
-    removeItem(state, action) {
+    removeItem(state, action: PayloadAction<ItemData>) {
       const existingItem = state.find((item) => item.id === action.payload.id);
 
       if (existingItem) {

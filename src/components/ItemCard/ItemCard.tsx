@@ -1,8 +1,8 @@
 import { FC, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../storage/index';
+import { RootState, AppDispatch } from '../../storage/index';
 import { addItem, removeItem } from '../../storage/itemSlice.ts';
-import { ItemData, MapedItemData } from '../../components/ItemCard/helper';
+import { ItemData } from '../../components/ItemCard/helper';
 import { ItemCardProps } from './helper';
 import classes from './ItemCard.module.scss';
 
