@@ -1,14 +1,14 @@
 import { FC, useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../storage/index';
+import { RootState } from '../../storage/index';
+import { useAppDispatch, useAppSelector } from '../../storage/hooks.ts'; 
 import { addItem, removeItem } from '../../storage/itemSlice.ts';
 import { ItemData } from '../../components/ItemCard/helper';
 import { ItemCardProps } from './helper';
 import classes from './ItemCard.module.scss';
 
 const ItemCard: FC<ItemCardProps> = ({ type, onClick, ...itemData }) => {
-  const dispatch = useDispatch();
-  const itemInCart = useSelector((state: RootState) =>
+  const dispatch = useAppDispatch();
+  const itemInCart = useAppSelector((state: RootState) =>
     state.items.find((item: ItemData) => item.id === itemData.id)
   );
   const itemQuantity = itemInCart ? itemInCart.quantity : 0;
