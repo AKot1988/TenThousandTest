@@ -5,11 +5,6 @@ const store = configureStore({
   reducer: {
     items: itemReducer,
   },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware({
-      serializableCheck: false,
-      thunk: true,
-    })},
 });
 
 

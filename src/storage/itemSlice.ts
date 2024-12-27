@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { MapedItemData, ItemData } from '../components/ItemCard/helper';
-import axios from 'axios';
 
 export const fetchItemsData = createAsyncThunk<MapedItemData[], string>(
   'items/fetchItemsData',
@@ -19,13 +18,15 @@ export const fetchItemsData = createAsyncThunk<MapedItemData[], string>(
 );
 
 interface ItemsState {
-  data: MapedItemData[];
+  cartData: MapedItemData[];
+  fetchedItemsData: ItemData[];
   status: 'idle' | 'loading' | 'success' | 'failed';
   error: string | null;
 }
 
 const initialState: ItemsState = {
-  data: [],
+  cartData: [],
+  fetchedItemsData: [],
   status: 'idle',
   error: null,
 };
@@ -35,22 +36,22 @@ const itemSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action: PayloadAction<ItemData>) {
-      const existingItem = state.data.find((item) => item.id === action.payload.id);
+      const existingItem = state.cartData.find((item) => item.id === action.payload.id);
 
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.data.push({ ...action.payload, quantity: 1 });
+        state.cartData.push({ ...action.payload, quantity: 1 });
       }
     },
     removeItem(state, action: PayloadAction<ItemData>) {
-      const existingItem = state.data.find((item) => item.id === action.payload.id);
+      const existingItem = state.cartData.find((item) => item.id === action.payload.id);
 
       if (existingItem) {
         if (existingItem.quantity > 1) {
           existingItem.quantity -= 1;
         } else {
-          state.data = state.data.filter((item) => item.id !== action.payload.id);
+          state.cartData = state.cartData.filter((item) => item.id !== action.payload.id);
         }
       }
     },
@@ -63,7 +64,7 @@ const itemSlice = createSlice({
       })
       .addCase(fetchItemsData.fulfilled, (state, action: PayloadAction<MapedItemData[]>) => {
         state.status = 'success';
-        state.data = action.payload;
+        state.fetchedItemsData = action.payload;
       })
       .addCase(fetchItemsData.rejected, (state, action) => {
         state.status = 'failed';

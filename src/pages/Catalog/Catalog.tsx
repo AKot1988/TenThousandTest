@@ -9,10 +9,9 @@ import classes from './Catalog.module.scss';
 
 const Catalog: FC = () => {
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state: RootState) => state.items.data);
-  console.log(data);
-
-  // const [data, setData] = useState<ItemData[]>([]);
+  const data = useAppSelector(
+    (state: RootState) => state.items.fetchedItemsData
+  );
   const [modalData, setModalData] = useState<ReactNode | null>(null);
   const [modalPanel, setModalPanel] = useState(false);
   const [modalCartState, setModalCart] = useState(false);
