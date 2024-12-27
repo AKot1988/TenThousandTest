@@ -9,7 +9,7 @@ import classes from './ItemCard.module.scss';
 const ItemCard: FC<ItemCardProps> = ({ type, onClick, ...itemData }) => {
   const dispatch = useAppDispatch();
   const itemInCart = useAppSelector((state: RootState) =>
-    state.items.find((item: ItemData) => item.id === itemData.id)
+    state.items.data.find((item: ItemData) => item.id === itemData.id)
   );
   const itemQuantity = itemInCart ? itemInCart.quantity : 0;
 

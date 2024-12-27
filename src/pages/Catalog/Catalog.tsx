@@ -1,22 +1,25 @@
 import { FC, useState, useEffect, useMemo, ReactNode } from 'react';
-import { ItemData } from '../../components/ItemCard/helper';
 import ItemCard from '../../components/ItemCard/ItemCard';
 import { SVGset } from '../../assets/SVGset';
 import { Modal, Cart } from '../../components';
-import { axiosResponse } from '../../API';
+import { RootState } from '../../storage/index';
+import { fetchItemsData } from '../../storage/itemSlice';
+import { useAppDispatch, useAppSelector } from '../../storage/hooks.ts';
 import classes from './Catalog.module.scss';
 
 const Catalog: FC = () => {
-  const [data, setData] = useState<ItemData[]>([]);
+  const dispatch = useAppDispatch();
+  const data = useAppSelector((state: RootState) => state.items.data);
+  console.log(data);
+
+  // const [data, setData] = useState<ItemData[]>([]);
   const [modalData, setModalData] = useState<ReactNode | null>(null);
   const [modalPanel, setModalPanel] = useState(false);
   const [modalCartState, setModalCart] = useState(false);
 
   useEffect(() => {
-    axiosResponse('../../../public/dataJSON/solarPanel.json').then((data) =>
-      setData(data)
-    );
-  }, []);
+    dispatch(fetchItemsData('/dataJSON/solarPanel.json'));
+  }, [dispatch]);
 
   const renderedCards = useMemo(
     () =>
@@ -27,7 +30,7 @@ const Catalog: FC = () => {
           type="catalog"
           onClick={() => {
             setModalPanel(!modalPanel);
-            setModalData((<ItemCard {...item} type="item"/>));
+            setModalData(<ItemCard {...item} type="item" />);
           }}
         />
       )),
@@ -37,7 +40,8 @@ const Catalog: FC = () => {
   return (
     <>
       <div className={classes.catalog}>
-        <div className={classes.catalogCartSVGContainer}
+        <div
+          className={classes.catalogCartSVGContainer}
           onClick={() => {
             setModalCart(!modalCartState);
           }}>

@@ -7,7 +7,7 @@ import { MapedItemData } from '../../components/ItemCard/helper';
 import classes from './Cart.module.scss';
 
 const Cart: FC = () => {
-  const items = useSelector((state: RootState) => state.items as MapedItemData[]);
+  const items = useSelector((state: RootState) => state.items.data as MapedItemData[]);
   return (
     <div className={classes.cart}>
       {SVGset.cartIcon}
